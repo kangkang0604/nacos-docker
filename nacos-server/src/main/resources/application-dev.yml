@@ -1,0 +1,14 @@
+base:
+  config:
+    db:
+      host: 192.168.1.216
+      port: 33806
+      user: root
+      password: root
+      dbName: nacos-server
+db:
+  num: 1
+  user: ${base.config.db.user}
+  password: ${base.config.db.password}
+  url:
+    0: jdbc:mysql://${base.config.db.host}:${base.config.db.port}/${base.config.db.dbName}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
