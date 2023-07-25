@@ -6,9 +6,34 @@ base:
       user: nacos
       password: nacos1116
       dbName: nacos-server
+spring:
+  datasource:
+    platform: mysql
+  security:
+    enabled: true
+nacos:
+  core:
+    auth:
+      plugin.nacos.token.secret.key: SecretKey012345678901234567890123456789012345678901234567890123456789
+      enabled: false
+      system.type: nacos
+  security:
+    ignore:
+      urls: /,/error,/**/*.css,/**/*.js,/**/*.html,/**/*.map,/**/*.svg,/**/*.png,/**/*.ico,/console-fe/public/**,/v1/auth/**,/v1/console/health/**,/actuator/**,/v1/console/server/**
 db:
   num: 1
   user: ${base.config.db.user}
   password: ${base.config.db.password}
   url:
-    0: jdbc:mysql://${base.config.db.host}:${base.config.db.port}/${base.config.db.dbName}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
+    0: jdbc:mysql://${base.config.db.host}:${base.config.db.port}/${base.config.db.dbName}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    export:
+      influx:
+        enabled: false
+      elastic:
+        enabled: false
