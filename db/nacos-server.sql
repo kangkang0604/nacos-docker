@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS `pig_config`;
+DROP DATABASE IF EXISTS `nacos`;
 
-CREATE DATABASE  `pig_config` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE  `nacos` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-USE pig_config;
+USE nacos;
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
